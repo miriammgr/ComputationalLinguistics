@@ -1,5 +1,5 @@
 # Progetto Linguistica Computazionale 12 CFU
-# Miriam Grande, matricola 665939
+# Miriam Grande
 # Programma 1
 
 import logging
@@ -172,7 +172,6 @@ def main():
     )
     args = parser.parse_args()
 
-    # Prendo in input i due corpora
     logger.info("Caricamento dei corpora: '%s' e '%s'", args.corpus1, args.corpus2)
     try:
         with open(args.corpus1, "r", encoding="utf-8") as f:
@@ -185,15 +184,12 @@ def main():
         logger.error("  python codice_uno.py percorso/corpus1.txt percorso/corpus2.txt")
         return
 
-    # Invoco la funzione che addestra il modello di classificazione
     logger.info("Addestramento del classificatore di sentiment (Naive Bayes su movie_reviews)...")
     classifier = train_sentiment_classifier()
 
-    # Invoco la funzione che analizza i due corpora
     logger.info("Analisi linguistica dei due corpora in corso...")
     results = analisi_finale(corpus1, corpus2, classifier)
 
-    # Scrivo in un file di testo i risultati attesi formattati in colonna
     logger.info("Scrittura dei risultati in '%s'...", args.output)
     with open(args.output, "w", encoding="utf-8") as f:
         f.write("Progetto di Linguistica Computazionale.\nProgramma Python n.1\n\n")
