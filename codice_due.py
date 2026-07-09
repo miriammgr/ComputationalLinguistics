@@ -1,5 +1,5 @@
 # Progetto Linguistica Computazionale 12 CFU
-# Miriam Grande, matricola 665939
+# Miriam Grande
 # Programma 2
 
 import logging
